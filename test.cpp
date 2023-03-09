@@ -1,16 +1,52 @@
 #include <iostream>
-#include <vector>
-#include <string>
-
+#include <unordered_map>
 using namespace std;
 
+// Driver code
 int main()
 {
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    // Declaring umap to be of
+    // <string, double> type key
+    // will be of string type and
+    // mapped value will be of double type
+    unordered_map<string, double> umap = {// inserting element directly in map
+                                          {"One", 1},
+                                          {"One", 2},
+                                          {"Three", 3}};
 
-    for (const string& word : msg)
+    // inserting values by using [] operator
+    /* 
+    umap["PI"] = 3.14;
+    umap["root2"] = 1.414;
+    umap["root3"] = 1.732;
+    umap["log10"] = 2.302;
+    umap["loge"] = 1.0; 
+    */
+
+    // inserting value by insert function
+    umap.insert(make_pair("e", 2.718));
+
+    string key = "PI";
+
+    // If key not found in map iterator
+    // to end is returned
+    if (umap.find(key) == umap.end())
+        cout << key << " not found\n\n";
+
+    // If key found then iterator to that
+    // key is returned
+    else
+        cout << "Found " << key << "\n\n";
+
+  unordered_map<string, double>::iterator itr;
+
+    for (itr = umap.begin();
+         itr != umap.end(); itr++)
     {
-        cout << word << " ";
+        // itr works as a pointer to
+        // pair<string, double> type
+        // itr->first stores the key part and
+        // itr->second stores the value part
+        cout << itr->first << "  " << itr->second << endl;
     }
-    cout << endl;
 }
