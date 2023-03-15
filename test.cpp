@@ -25,6 +25,7 @@ int main()
 
     // inserting value by insert function
     umap.insert(make_pair("e", 2.718));
+    umap["e"] = 2.718;
 
     string key = "PI";
 
